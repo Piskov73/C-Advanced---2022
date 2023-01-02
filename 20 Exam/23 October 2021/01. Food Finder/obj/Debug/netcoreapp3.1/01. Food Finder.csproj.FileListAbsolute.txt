@@ -1,0 +1,14 @@
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\bin\Debug\netcoreapp3.1\01. Food Finder.exe
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\bin\Debug\netcoreapp3.1\01. Food Finder.deps.json
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\bin\Debug\netcoreapp3.1\01. Food Finder.runtimeconfig.json
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\bin\Debug\netcoreapp3.1\01. Food Finder.runtimeconfig.dev.json
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\bin\Debug\netcoreapp3.1\01. Food Finder.dll
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\bin\Debug\netcoreapp3.1\01. Food Finder.pdb
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.csproj.AssemblyReference.cache
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.GeneratedMSBuildEditorConfig.editorconfig
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.AssemblyInfoInputs.cache
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.AssemblyInfo.cs
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.csproj.CoreCompileInputs.cache
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.dll
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.pdb
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\01. Food Finder\obj\Debug\netcoreapp3.1\01. Food Finder.genruntimeconfig.cache

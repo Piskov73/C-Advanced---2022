@@ -1,0 +1,14 @@
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\bin\Debug\netcoreapp3.1\02PawnWars.exe
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\bin\Debug\netcoreapp3.1\02PawnWars.deps.json
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\bin\Debug\netcoreapp3.1\02PawnWars.runtimeconfig.json
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\bin\Debug\netcoreapp3.1\02PawnWars.runtimeconfig.dev.json
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\bin\Debug\netcoreapp3.1\02PawnWars.dll
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\bin\Debug\netcoreapp3.1\02PawnWars.pdb
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.csproj.AssemblyReference.cache
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.GeneratedMSBuildEditorConfig.editorconfig
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.AssemblyInfoInputs.cache
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.AssemblyInfo.cs
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.csproj.CoreCompileInputs.cache
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.dll
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.pdb
+G:\C#\002 C# Advanced - септември 2022\20 Exam Preparation - C# Advanced - септември 2022\23 October 2021\23 October 2021\02PawnWars\obj\Debug\netcoreapp3.1\02PawnWars.genruntimeconfig.cache
