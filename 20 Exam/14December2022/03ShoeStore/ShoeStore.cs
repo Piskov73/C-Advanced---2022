@@ -1,90 +1,73 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
 
 namespace ShoeStore
 {
     public class ShoeStore
     {
+
         private List<Shoe> shoes;
-
-        public ShoeStore(string name,int capacity)
+        public ShoeStore(string name, int storageCapacity)
         {
-            Name=name;
-            StorageCapacity=capacity;
+            this.Name = name;
+            this.StorageCapacity = storageCapacity;
             shoes = new List<Shoe>();
-            
         }
+        public string Name { get; set; }
+        public int StorageCapacity { get; set; }
+        IReadOnlyCollection<Shoe> Shoes => shoes;
+        public int Count => shoes.Count;
 
-            // •	Name – string
-            //•	StorageCapacity – int
-            //•	Shoes – List<Shoe>
-            private string name;
-      
-        public string Name
+        public string AddShoe(Shoe shoe)
         {
-            get { return name; }
-            set { name = value; }
-        }
-        private int storageCapacity;
-
-        public int StorageCapacity
-        {
-            get { return storageCapacity; }
-            set { storageCapacity = value; }
-        }
-              
-        public int Count { get { return shoes.Count; } }
-
-        public 	string AddShoe(Shoe shoe)
-        {
-            if (Count == StorageCapacity)
+            if (this.Count < this.StorageCapacity)
             {
-                return "No more space in the storage room.";
+                this.shoes.Add(shoe);
+                return $"Successfully added {shoe.Type} {shoe.Material} pair of shoes to the store.";
             }
-            shoes.Add(shoe);
-            return $"Successfully added {shoe.Type} {shoe.Material} pair of shoes to the store.";
+            return "No more space in the storage room.";
+
         }
         public int RemoveShoes(string material)
         {
-            List<Shoe>filter = shoes.Where(x=>x.Material!=material).ToList();
 
-            int count = Count-filter.Count;
-            shoes = filter;
-            return count;
+            List<Shoe> filter = this.shoes.Where(m => m.Material.ToLower() != material.ToLower()).ToList();
+            int remuvNumb = 0;
+            remuvNumb = this.Count - filter.Count;
+            this.shoes = filter;
+            return remuvNumb;
+
         }
-        public 	List<Shoe> GetShoesByType(string type)
+        public List<Shoe> GetShoesByType(string type)
         {
-            List <Shoe> filterType=shoes.Where(x=>x.Type.ToLower()==type.ToLower()).ToList();
-            return filterType;
-        }
+            List<Shoe> filter = this.shoes.Where(t => t.Type.ToLower() == type.ToLower()).ToList();
 
+            return filter;
+
+        }
         public Shoe GetShoeBySize(double size)
         {
-            Shoe shoe=shoes.FirstOrDefault(x=>x.Size==size);
-            return shoe;
+            return this.shoes.FirstOrDefault(sh => sh.Size == size);
         }
-        public 	string StockList(double size, string type)
+        public string StockList(double size, string type)
         {
-            List<Shoe> filters=shoes.Where(x=>x.Size==size&&x.Type==type).ToList();
-            if (filters != null)
+            StringBuilder sb = new StringBuilder();
+            List<Shoe> filter = this.shoes.Where(x => x.Size == size && x.Type.ToLower() == type.ToLower()).ToList();
+
+            if (filter.Count > 0)
             {
-                StringBuilder sb=new StringBuilder();
                 sb.AppendLine($"Stock list for size {size} - {type} shoes:");
-                //"Stock list for size {size} - {type} shoes:
-                foreach (var item in filters)
+                foreach (var item in filter)
                 {
                     sb.AppendLine(item.ToString());
                 }
-                return sb.ToString().Trim();
-
+                return sb.ToString().TrimEnd();
             }
-
             return "No matches found!";
+
         }
 
-
     }
-    
 }
