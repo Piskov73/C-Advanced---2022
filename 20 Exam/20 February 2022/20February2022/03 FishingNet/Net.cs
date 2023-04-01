@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -6,94 +7,74 @@ namespace FishingNet
 {
     public class Net
     {
-       
-          private List<Fish> fish;
-    
-        public Net(string material,int capasity) 
-        { 
-            Material= material;
-            Capacity= capasity;
-            fish = new List<Fish>();
-        }
-
-
-        public List<Fish> Fish
+        private List<Fish> fish;
+      
+        public Net(string material,int capacity)
         {
-            get { return fish; }
-            set { fish = value; }
+            this.Material=material;
+            this.Capacity=capacity;
+            this.fish = new List<Fish>();
         }
 
-
-  
-        public string Material { get; set; }    
-       
+        public string Material { get;set; }
         public int Capacity { get; set; }
-      
-        public int Count { get { return fish.Count; } }
 
-      
+        public IReadOnlyCollection<Fish> Fish => this.fish;
+
+        public int Count => fish.Count;
 
         public 	string AddFish(Fish fish)
         {
-
-            if (string.IsNullOrWhiteSpace(fish.FishType) || fish.Length <= 0 || fish.Weight <= 0)
+            if(string.IsNullOrWhiteSpace(fish.FishType))
             {
                 return "Invalid fish.";
             }
-            else if(Count==this.Capacity)
+            if(fish.Length<=0||fish.Weight<=0)
+            {
+                return "Invalid fish.";
+            }
+            if(this.Count==this.Capacity)
             {
                 return "Fishing net is full.";
             }
+
             this.fish.Add(fish);
             return $"Successfully added {fish.FishType} to the fishing net.";
-
         }
 
-        public 	bool ReleaseFish(double weight)
+        public	bool ReleaseFish(double weight)
         {
-            Fish remuveWeinght=this.Fish.FirstOrDefault(fishs=> fishs.Weight == weight);
-
-            if (remuveWeinght != null)
+            var filterRemuve=this.fish.FirstOrDefault(fish => fish.Weight<=weight);
+            if(filterRemuve!=null)
             {
-                this.fish.Remove(remuveWeinght);
+                this.fish.Remove(filterRemuve);
                 return true;
             }
             return false;
         }
-
-        public 	Fish GetFish(string fishType)
-        {
-            return this.Fish.FirstOrDefault(x=>x.FishType == fishType);
-        }
+        public 	Fish GetFish(string fishType) =>this.fish.FirstOrDefault(f=>f.FishType==fishType);
 
         public 	Fish GetBiggestFish()
         {
-            Fish max = this.Fish.First();
-            foreach (var item in this.Fish)
-            {
-                if (item.Length > max.Length)
-                {
-                    max = item;
-                }
-            }
-            return max; 
-            //var longestFish = this.fish.Max(e => e.Length);
-            //var fish = this.fish.FirstOrDefault(e => e.Length == longestFish);
-            //return fish;
-        }
+            if(Count==0) return null;
+            double maxLenght=this.fish.Max(fish => fish.Length);
+            
+            return this.fish.First(f=>f.Length==maxLenght);
 
-        public string	Report()
+           
+
+        }
+        public string Report()
         {
-            StringBuilder sb= new StringBuilder();
-            sb.AppendLine("Into the cast net:");
-            foreach (var item in this.Fish.OrderByDescending(x=>x.Length))
+            StringBuilder sb = new StringBuilder();
+            //Into the {material}:
+            sb.AppendLine($"Into the {Material}:");
+            foreach(var fish in this.fish.OrderByDescending(f=>f.Length))
             {
-                sb.AppendLine(item.ToString());
+                sb.AppendLine(fish.ToString());
             }
 
             return sb.ToString().TrimEnd();
         }
-
-
     }
 }
