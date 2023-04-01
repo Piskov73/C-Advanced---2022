@@ -9,7 +9,6 @@ namespace Drones
         {
             // Initialize the repository (Airfield)
             Airfield airfield = new Airfield("Heathrow", 10, 10.5);
-
             // Initialize entity
             Drone drone = new Drone("D20", "DEERC", 6);
 
@@ -25,6 +24,7 @@ namespace Drones
 
             // Remove Drone
             Console.WriteLine(airfield.RemoveDrone("DE51"));  // False
+
             Drone secondDrone = new Drone("CW4", "Cheerwing", 8);
             Drone thirdDrone = new Drone("X5SW-V3", "Cheerwing", 7);
             Drone fourthDrone = new Drone("X20", "Cheerwing", 4);
@@ -37,6 +37,7 @@ namespace Drones
             Console.WriteLine(airfield.AddDrone(fourthDrone)); // Invalid drone.
             Console.WriteLine(airfield.AddDrone(fifthDrone));  // Successfully added EVO2 to the airfield.
             Console.WriteLine(airfield.AddDrone(sixtDrone));   // Successfully added XL5-6S-FPV to the airfield.
+
             // Fly drone by name
             Console.WriteLine(airfield.FlyDrone("CW4"));
             // Drone: CW4
@@ -58,10 +59,8 @@ namespace Drones
             Manufactured by: iFlight
             Range: 10 kilometers
             */
-
             // Remove drone by brand
             Console.WriteLine(airfield.RemoveDroneByBrand("Cheerwing")); // 2
-
             Console.WriteLine("----------------------Report----------------------");
             Console.WriteLine(airfield.Report());
             /*

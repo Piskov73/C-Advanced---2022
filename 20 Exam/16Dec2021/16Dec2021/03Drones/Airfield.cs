@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -6,103 +7,78 @@ namespace Drones
 {
     public class Airfield
     {
-
-        // •	Name: string
+        //•	Name: string
         //•	Capacity: int
         //•	LandingStrip - double
-        private List<Drone> drones;
+        private HashSet<Drone> drones;
         public Airfield(string name, int capacity, double landingStrip)
         {
             this.Name = name;
             this.Capacity = capacity;
             this.LandingStrip = landingStrip;
-            drones = new List<Drone>();
+            this.drones = new HashSet<Drone>();
         }
-
-        public List<Drone> Drones
-        {
-            get { return drones; }
-            set { drones = value; }
-        }
-
-
-
-
         public string Name { get; set; }
         public int Capacity { get; set; }
         public double LandingStrip { get; set; }
-        public int Count { get { return drones.Count; } }
-
+        public IReadOnlyCollection<Drone> Drones { get { return this.drones; } }
+        public int Count => this.drones.Count;
         public string AddDrone(Drone drone)
         {
-            if (string.IsNullOrEmpty(drone.Name) || drone.Range <= 5 || drone.Range >= 15)
+            if (string.IsNullOrEmpty(drone.Name) || string.IsNullOrEmpty(drone.Brand)
+                || !(drone.Range >= 5 && drone.Range <= 15))
             {
                 return "Invalid drone.";
             }
-            else if (drones.Count == this.Capacity)
+            if (Count == this.Capacity)
             {
                 return "Airfield is full.";
             }
-
-            drones.Add(drone);
+            this.drones.Add(drone);
             return $"Successfully added {drone.Name} to the airfield.";
-
         }
-
-        public bool RemoveDrone(string name)
+        public 	bool RemoveDrone(string name)
         {
-            Drone drone = this.Drones.FirstOrDefault(x => x.Name == name);
-            if (drone == null)
+            var filterRemuve=this.drones.FirstOrDefault(drones => drones.Name == name);
+            if (filterRemuve != null)
             {
-                return false;
+                this.drones.Remove(filterRemuve);
+                return true;
             }
-            return drones.Remove(drone);
+            return false;
         }
-
-        public int RemoveDroneByBrand(string brand)
+        public	int RemoveDroneByBrand(string brand)
         {
-            int numberOFRemovedDrones = 0;
-
-            List<Drone> remuvedDrones = drones.Where(drone => drone.Brand != brand).ToList();
-
-            numberOFRemovedDrones = Count - remuvedDrones.Count;
-            drones = remuvedDrones;
-            return numberOFRemovedDrones;
+            var filterRemuve=this.drones.Where(drones => drones.Brand != brand).ToHashSet();
+            int remuvDrons=Count-filterRemuve.Count;
+            this.drones=filterRemuve;
+            return remuvDrons;
         }
-
-        public Drone FlyDrone(string name)
+        public 	Drone FlyDrone(string name)
         {
-            Drone flyDrone = this.Drones.FirstOrDefault(x => x.Name == name);
-            if (flyDrone == null)
+            var flyDrone=this.drones.FirstOrDefault(drones=>drones.Name == name);
+            if(flyDrone != null)
             {
-                return null;
+                flyDrone.Available = true;
             }
-            flyDrone.Available = false;
             return flyDrone;
         }
-
-        public List<Drone> FlyDronesByRange(int range)
+        public	List<Drone> FlyDronesByRange(int range)
         {
-            var filter = this.Drones.Where(x => x.Range >= range && x.Available == true).ToList();
-            foreach (var drone in filter)
-            {
-                drone.Available = false;
-            }
-            return filter;
+            var flyDronesByRange=this.drones.Where(drones=>drones.Range >= range).ToList();
+            if (flyDronesByRange.Count == 0) return null;
+            return flyDronesByRange;
         }
-
-        public string Report()
+        public string 	Report()
         {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine($"Drones available at {this.Name}:");
-            foreach (var item in this.Drones.Where(x => x.Available == true))
+            StringBuilder sb=new StringBuilder();
+            sb.AppendLine($"Drones available at {Name}:");
+            foreach (var dron in drones)
             {
-                sb.AppendLine(item.ToString());
+                if(dron.Available==true) 
+                sb.AppendLine(dron.ToString());
             }
-
             return sb.ToString().TrimEnd();
         }
-
     }
 }
